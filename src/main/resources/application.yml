@@ -1,0 +1,48 @@
+
+# Fixed port 55216 or = use '0' for dynamic port.
+server:
+  port : 8080
+
+# DB config:h2
+# DB_CLOSE_ON_EXIT=FALSE;;FILE_LOCK=NO
+
+#springdoc                                :
+#  swagger-ui.path: /swagger-ui.html
+#  api-docs.path  : /v3/api-docs
+#  packagesToScan : dk
+#  pathsToMath    : /*
+
+spring:
+  datasource:
+    password:
+    url: jdbc:h2:C:/h5Data/h2data;
+    username: sa
+    driverClassName: org.h2.Driver
+  jpa:
+    generate-ddl: true
+    #defer-datasource-initialization: true
+    hibernate:
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        query:
+          plan_cache_max_size: 1024
+          plan_parameter_metadata_max_size: 64
+          in_clause_parameter_padding: true
+        ddl-auto: update
+        #   show-sql  : false
+        # format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
+    datasource:
+      hikari:
+        connectionTimeout: 30000
+        idleTimeout: 600000
+        maxLifetime: 1800000
+#  sql:
+#    init:
+#      platform: h2
+#      mode: never
+
+
+
+
